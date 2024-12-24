@@ -1,18 +1,19 @@
-# Use an official Go image as the base
+# Specifies a parent image
 FROM golang:latest
 
-# Install additional tools
 RUN apt-get update && apt-get install -y \
     git \
     build-essential \
     && apt-get clean
 
-# Set up Go environment variables
 ENV GOPATH=/go
 ENV PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
+ 
+# Creates an app directory to hold your app’s source code
+WORKDIR /learngo
+ 
+# Copies everything from your root directory into /app
+COPY . /learngo
+ 
 
-# Set the working directory
-WORKDIR /workspace
-
-# Copy the current directory contents into the container
-COPY . /workspace
+ 

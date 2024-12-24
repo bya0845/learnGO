@@ -1,0 +1,9 @@
+name: learn-go
+services:
+  learn-go:
+    image: learn-go
+    container_name: gogo-container
+    tty: true
+    volumes:
+      - "C:/Startup/Golang:/home"
+    stdin_open: true
